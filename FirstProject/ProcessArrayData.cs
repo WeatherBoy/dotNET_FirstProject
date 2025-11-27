@@ -55,16 +55,12 @@ public static class ProcessArrayData
     public static void PrintFormattedGradeReport(Dictionary<string, int[]> allStudentsWithScores)
     {
         Console.WriteLine("Student\t\tGrade\n");
-        foreach (KeyValuePair<string, int[]> studentWithScores in allStudentsWithScores)
+        foreach ((string student, int[] grades) in allStudentsWithScores)
         {
-            string student = studentWithScores.Key;
-            int[] grades = studentWithScores.Value;
             decimal averageGrade = (decimal)grades.Average();
             string letterGrade = GetLetterGrade(averageGrade);
             
             Console.WriteLine($"{student}:\t\t{averageGrade}\t{letterGrade}");
         }
     }
-    
-    
 }
